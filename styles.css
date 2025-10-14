@@ -276,6 +276,33 @@ button:hover span:last-child {
   transform: translateX(4px);
 }
 
+.card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  min-height: 1.2em;
+  transition: color 0.2s ease;
+}
+
+.form-status--info {
+  color: var(--color-text-muted);
+}
+
+.form-status--success {
+  color: #76e5c2;
+}
+
+.form-status--error {
+  color: #ff9ca4;
+}
+
 .footnote {
   margin-top: 14px;
   font-size: 0.85rem;

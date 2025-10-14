@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resonant | Coming Soon</title>
+    <title>Protovibing | Coming Soon</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/x-icon" />
   </head>
   <body>
     <div class="blob-gradient-1"></div>
@@ -15,7 +16,7 @@
         <img
           src="assets/logo@2x.png"
           srcset="assets/logo@1x.png 1x, assets/logo@2x.png 2x, assets/logo.png 3x"
-          alt="Resonant logo"
+          alt="Protovibing logo"
           width="128"
           height="176"
         />
@@ -23,14 +24,13 @@
 
       <h1>Protovibing</h1>
       <span class="badge">Early Access</span>
-      <!-- <h2>The customer development sandbox</h2> -->
-      <p class="tagline">Your sandbox for customer development.</p>
-
+      <h2>Your AI-powered sandbox for customer development.</h2>
+      <!-- <p class="tagline">Your AI-powered sandbox for customer development.</p> -->
       <p class="subtext">
         Create rapid prototypes, test with real users, and validate your ideas fast—so you know what clicks before committing to development.
       </p>
 
-      <form>
+      <form id="early-access-form" novalidate>
         <div class="input-wrapper">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path
@@ -50,14 +50,85 @@
           <input id="email" type="email" placeholder="you@example.com" required />
         </div>
         <button type="submit">
-          <span>Join the early access list</span>
+          <span data-button-text>Join the early access list</span>
           <span aria-hidden="true">➔</span>
         </button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
       </form>
 
       <p class="footnote">
         We respect your inbox. Expect an invitation as soon as private beta slots open.
       </p>
     </main>
+
+    <script>
+      (function () {
+        const form = document.getElementById("early-access-form");
+        if (!form) return;
+
+        const emailInput = document.getElementById("email");
+        const statusMessage = document.getElementById("form-status");
+        const submitButton = form.querySelector('button[type="submit"]');
+        const buttonLabel = submitButton?.querySelector("[data-button-text]");
+        const API_URL = "/api/subscribe"; // Local backend proxy
+        const FALLBACK_ERROR = "Something went wrong. Please try again.";
+
+        function setStatus(message, variant) {
+          if (!statusMessage) return;
+          statusMessage.textContent = message;
+          statusMessage.hidden = false;
+          statusMessage.classList.remove("form-status--error", "form-status--success", "form-status--info");
+          if (variant === "error") {
+            statusMessage.classList.add("form-status--error");
+          } else if (variant === "success") {
+            statusMessage.classList.add("form-status--success");
+          } else {
+            statusMessage.classList.add("form-status--info");
+          }
+        }
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (!emailInput || !submitButton || !buttonLabel) return;
+
+          const email = emailInput.value.trim();
+          if (!email) {
+            setStatus("Please enter a valid email address.", "error");
+            emailInput.focus();
+            return;
+          }
+
+          submitButton.disabled = true;
+          buttonLabel.dataset.originalText = buttonLabel.dataset.originalText || buttonLabel.textContent || "";
+          buttonLabel.textContent = "Joining...";
+          setStatus("Adding you to the list...", "info");
+
+          try {
+            const response = await fetch(API_URL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email }),
+            });
+
+            const payload = await response.json().catch(() => null);
+            if (response.ok && payload?.success) {
+              form.reset();
+              setStatus(payload.message || "You're in! We'll be in touch soon.", "success");
+            } else {
+              const errorMessage = payload?.error || payload?.message || FALLBACK_ERROR;
+              setStatus(errorMessage, "error");
+            }
+          } catch (error) {
+            setStatus("Server error. Make sure the backend is running (npm start).", "error");
+            console.error("Error:", error);
+          } finally {
+            submitButton.disabled = false;
+            buttonLabel.textContent = buttonLabel.dataset.originalText || "Join the early access list";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
