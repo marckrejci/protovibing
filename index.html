@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resonant | Coming Soon</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="blob-gradient-1"></div>
+    <div class="blob-gradient-2"></div>
+    <div class="blob-gradient-3"></div>
+    <main class="card">
+      <div class="logo">
+        <img
+          src="assets/logo@2x.png"
+          srcset="assets/logo@1x.png 1x, assets/logo@2x.png 2x, assets/logo.png 3x"
+          alt="Resonant logo"
+          width="128"
+          height="176"
+        />
+      </div>
+
+      <h1>Protovibing</h1>
+      <span class="badge">Early Access</span>
+      <!-- <h2>The customer development sandbox</h2> -->
+      <p class="tagline">Your sandbox for customer development.</p>
+
+      <p class="subtext">
+        Create rapid prototypes, test with real users, and validate your ideas fast—so you know what clicks before committing to development.
+      </p>
+
+      <form>
+        <div class="input-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path
+              d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="m22 8-10 6L2 8"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <button type="submit">
+          <span>Join the early access list</span>
+          <span aria-hidden="true">➔</span>
+        </button>
+      </form>
+
+      <p class="footnote">
+        We respect your inbox. Expect an invitation as soon as private beta slots open.
+      </p>
+    </main>
+  </body>
+</html>
