@@ -6,6 +6,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const https = require('https');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,10 +36,10 @@ app.post('/api/subscribe', async (req, res) => {
   // Check for API key
   const apiKey = process.env.LOOPS_API_KEY;
   if (!apiKey) {
-    console.error('LOOPS_API_KEY is not set in .env file');
+    console.error('LOOPS_API_KEY is not set. Unable to submit email to Loops.');
     return res.status(500).json({
       success: false,
-      error: 'Server configuration error. Please contact support.'
+      error: 'Server misconfiguration. Please contact support.'
     });
   }
 
@@ -53,38 +54,75 @@ app.post('/api/subscribe', async (req, res) => {
       payload.mailingLists = { [mailingListId]: true };
     }
 
-    // Forward request to Loops API
-    const response = await fetch('https://app.loops.so/api/v1/contacts/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify(payload)
-    });
+    const loopsResponse = await forwardToLoops(payload, apiKey);
 
-    const data = await response.json();
-
-    // Forward Loops response to client
-    if (response.ok) {
+    if (loopsResponse.ok) {
       res.json({
         success: true,
-        message: data.message || 'Successfully subscribed!'
+        message: loopsResponse.body.message || 'Successfully subscribed!'
       });
     } else {
-      res.status(response.status).json({
+      res.status(loopsResponse.status).json({
         success: false,
-        error: data.message || data.error || 'Failed to subscribe'
+        error: loopsResponse.body.message || loopsResponse.body.error || 'Failed to subscribe'
       });
     }
   } catch (error) {
     console.error('Error forwarding to Loops API:', error);
+
     res.status(500).json({
       success: false,
-      error: 'Network error. Please try again.'
+      error: 'Network error while contacting Loops. Please try again.'
     });
   }
 });
+
+async function forwardToLoops(payload, apiKey) {
+  const requestBody = JSON.stringify(payload);
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Length': Buffer.byteLength(requestBody)
+    }
+  };
+
+  return new Promise((resolve, reject) => {
+    const req = https.request('https://app.loops.so/api/v1/contacts/create', options, (res) => {
+      let responseData = '';
+
+      res.on('data', (chunk) => {
+        responseData += chunk;
+      });
+
+      res.on('end', () => {
+        let parsedBody = {};
+        if (responseData) {
+          try {
+            parsedBody = JSON.parse(responseData);
+          } catch (parseError) {
+            return reject(new Error('Invalid JSON response from Loops API'));
+          }
+        }
+
+        resolve({
+          ok: res.statusCode >= 200 && res.statusCode < 300,
+          status: res.statusCode,
+          body: parsedBody
+        });
+      });
+    });
+
+    req.on('error', (err) => {
+      reject(err);
+    });
+
+    req.write(requestBody);
+    req.end();
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`\n🚀 Server running at http://localhost:${PORT}`);
