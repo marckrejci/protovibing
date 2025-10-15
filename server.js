@@ -95,3 +95,6 @@ app.listen(PORT, () => {
     console.warn('   Create a .env file with your Loops API key to enable form submissions.\n');
   }
 });
+
+// Export the Express app for Vercel serverless functions
+module.exports = app;
