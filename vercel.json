@@ -1,8 +1,7 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/server.js"
+  "functions": {
+    "api/subscribe.js": {
+      "maxDuration": 10
     }
-  ]
+  }
 }
