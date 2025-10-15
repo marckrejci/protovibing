@@ -32,7 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 16px;
+  padding: 24px 16px;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -40,6 +40,12 @@ body {
   line-height: 1.6;
   background: linear-gradient(160deg, #1c2137 0%, #252c45 50%, var(--color-background) 100%);
   color: var(--color-text);
+}
+
+@media (min-width: 480px) {
+  body {
+    padding: 40px 16px;
+  }
 }
 
 body::before {
@@ -136,7 +142,7 @@ body::after {
   width: min(92vw, 500px);
   background: linear-gradient(140deg, rgba(29, 36, 57, 0.72), rgba(14, 18, 30, 0.42));
   border-radius: 22px;
-  padding: 48px 56px;
+  padding: 32px 24px;
   box-shadow: var(--shadow-level-2), 0 22px 55px rgba(6, 10, 22, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
@@ -146,6 +152,12 @@ body::after {
   backdrop-filter: blur(24px) saturate(130%);
   -webkit-backdrop-filter: blur(24px) saturate(130%);
   overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .card {
+    padding: 48px 56px;
+  }
 }
 
 .card::before {
@@ -192,7 +204,7 @@ body::after {
 
 h1 {
   margin: 18px 0 8px;
-  font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 3rem);
   letter-spacing: -0.01em;
   font-weight: 700;
   color: var(--color-text);
@@ -201,9 +213,10 @@ h1 {
 
 h2 {
   margin: 0 0 20px;
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 5vw, 1.5rem);
   font-weight: 600;
   color: var(--color-text);
+  line-height: 1.3;
 }
 
 .tagline {
@@ -215,8 +228,8 @@ h2 {
 
 .subtext {
   margin: 0 0 30px;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  line-height: 1.5;
   color: var(--color-text-muted);
 }
 
@@ -270,7 +283,7 @@ button {
   padding: 14px 28px;
   border-radius: 16px;
   border: none;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
   font-weight: 600;
   color: #ffffff;
   background: var(--color-primary);

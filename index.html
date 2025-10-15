@@ -25,10 +25,10 @@
 
       <h1>Protovibing</h1>
       <span class="badge">Early Access</span>
-      <h2>Your AI-powered sandbox for customer development.</h2>
+      <h2>Your AI-powered lab for customer development.</h2>
       <!-- <p class="tagline">Your AI-powered sandbox for customer development.</p> -->
       <p class="subtext">
-Prototype ideas quickly with humans in the loop, compounding insights from each iteration before investing in full-scale development.      </p>
+Prototype ideas quickly with humans in the loop, compounding insights from each iteration before before investing in full-scale production.      </p>
 
       <form id="early-access-form" novalidate>
         <div class="input-wrapper">
@@ -50,7 +50,7 @@ Prototype ideas quickly with humans in the loop, compounding insights from each 
           <input id="email" type="email" placeholder="you@example.com" required />
         </div>
         <button type="submit">
-          <span data-button-text>Join the early access list</span>
+          <span data-button-text>Join early access list</span>
           <span aria-hidden="true">➔</span>
         </button>
         <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
@@ -125,7 +125,7 @@ Prototype ideas quickly with humans in the loop, compounding insights from each 
             console.error("Error:", error);
           } finally {
             submitButton.disabled = false;
-            buttonLabel.textContent = buttonLabel.dataset.originalText || "Join the early access list";
+            buttonLabel.textContent = buttonLabel.dataset.originalText || "Join early access list";
           }
         });
       })();
