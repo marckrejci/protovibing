@@ -34,7 +34,8 @@ body {
   justify-content: center;
   padding: 40px 16px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: "Inter", "Segoe UI", sans-serif;
   line-height: 1.6;
   background: linear-gradient(160deg, #1c2137 0%, #252c45 50%, var(--color-background) 100%);
@@ -70,7 +71,7 @@ body::after {
     transparent 70%
   );
   filter: blur(60px);
-  animation: float-one 20s ease-in-out infinite alternate;
+  animation: float-one 8s ease-in-out infinite alternate;
 }
 
 .blob-gradient-1 {
@@ -89,7 +90,7 @@ body::after {
     transparent 70%
   );
   filter: blur(70px);
-  animation: float-two 25s ease-in-out infinite alternate;
+  animation: float-two 10s ease-in-out infinite alternate;
 }
 
 .blob-gradient-2 {
@@ -108,7 +109,7 @@ body::after {
     transparent 70%
   );
   filter: blur(65px);
-  animation: float-three 22s ease-in-out infinite alternate;
+  animation: float-three 9s ease-in-out infinite alternate;
 }
 
 .blob-gradient-3 {
@@ -128,7 +129,7 @@ body::after {
     transparent 70%
   );
   filter: blur(80px);
-  animation: pulse-expand 18s ease-in-out infinite;
+  animation: pulse-expand 7s ease-in-out infinite;
 }
 
 .card {
