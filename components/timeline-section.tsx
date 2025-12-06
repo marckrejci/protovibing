@@ -13,7 +13,7 @@ const steps = [
     number: 3,
     title: "Do the homework",
     description:
-      "Expect assigned tasks between sessions and be ready to work.",
+      "You'll have tasks between sessions. Nothing to prepare ahead of time, but be ready to put in the work.",
   },
   {
     number: 4,
