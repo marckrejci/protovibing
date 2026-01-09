@@ -1,8 +1,11 @@
 import { GradientBlobs } from "@/components/gradient-blobs"
+import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
 import { TimelineSection } from "@/components/timeline-section"
 import { TestimonialSection } from "@/components/testimonial-section"
+import { CTASection } from "@/components/cta-section"
+import { GPTSection } from "@/components/gpt-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -13,12 +16,20 @@ export default function Home() {
       <div className="noise-overlay" aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-20 md:gap-24 py-12 md:py-20">
-        <HeroSection />
-        <FeaturesSection />
-        <TimelineSection />
-        <TestimonialSection />
-        <Footer />
+      <div className="relative z-10 flex flex-col items-center pb-12 md:pb-20">
+        <Header />
+
+        <div className="flex flex-col items-center gap-20 md:gap-24 mt-8 md:mt-12">
+          <HeroSection />
+          <FeaturesSection />
+          <TimelineSection />
+          <div className="flex flex-col items-center gap-16 w-full">
+            <TestimonialSection />
+            <CTASection />
+          </div>
+          <GPTSection />
+          <Footer />
+        </div>
       </div>
     </main>
   )
