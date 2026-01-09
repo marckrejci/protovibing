@@ -5,7 +5,7 @@ export function Footer() {
         This challenge is completely free. No credit card required. Sessions will be 30 minutes per day over 5 days and a willingness to test your assumptions.
       </p>
       <p className="text-sm text-muted-foreground">
-        Offered by{" "}
+        Protovibing&trade; challenge and resources are offered by{" "}
         <a
           href="https://pathfinderfoundry.com"
           target="_blank"
@@ -14,6 +14,7 @@ export function Footer() {
         >
           Pathfinder Foundry
         </a>
+        {" "}&copy; 2026
       </p>
     </footer>
   )
