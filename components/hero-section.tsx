@@ -17,12 +17,12 @@ export function HeroSection() {
       </div>
 
       <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-[1.2] tracking-tight text-balance mb-4">
-        Go from stuck idea to tested prototype in 5 days, without coding
+        Your human partner for AI-powered product validation
       </h1>
 
       <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
         Join the free ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real
-        feedback, and finally move forward.
+        feedback, and finally move forward. Is your idea ready?
       </p>
 
       <a
@@ -35,7 +35,7 @@ export function HeroSection() {
       </a>
 
       <p className="mt-4 text-sm text-muted-foreground">
-        Takes 2 minutes • Then we&apos;ll schedule your 5 sessions together
+        Takes 3-5 minutes • Then we&apos;ll schedule your 5 sessions together
       </p>
     </section>
   )
