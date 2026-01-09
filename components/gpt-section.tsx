@@ -43,7 +43,7 @@ export function GPTSection() {
     if (shuffledGpts.length === 0) return null
 
     return (
-        <section className="w-full max-w-6xl mx-auto px-8 md:px-12 py-8 animate-fade-in-up">
+        <section id="agents" className="w-full max-w-6xl mx-auto px-8 md:px-12 py-8 animate-fade-in-up">
             <div className="mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
                     Custom GPTs

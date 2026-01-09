@@ -24,7 +24,7 @@ const steps = [
 
 export function TimelineSection() {
   return (
-    <section className="w-full max-w-2xl mx-auto px-4">
+    <section id="timeline" className="w-full max-w-2xl mx-auto px-4">
       <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">How It Works</h2>
 
       <div className="relative">

@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="flex flex-col items-center text-center max-w-[600px] mx-auto px-4 animate-fade-in-up">
+    <section id="hero" className="flex flex-col items-center text-center max-w-[600px] mx-auto px-4 animate-fade-in-up">
 
       <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-[1.2] tracking-tight text-balance mb-4">
         Your human partner for AI-powered product validation
