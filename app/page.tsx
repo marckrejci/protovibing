@@ -1,3 +1,5 @@
+"use client"
+
 import { GradientBlobs } from "@/components/gradient-blobs"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
@@ -7,8 +9,10 @@ import { TestimonialSection } from "@/components/testimonial-section"
 import { CTASection } from "@/components/cta-section"
 import { GPTSection } from "@/components/gpt-section"
 import { Footer } from "@/components/footer"
+import { useHashNavigation } from "@/lib/use-hash-navigation"
 
 export default function Home() {
+  useHashNavigation()
   return (
     <main className="relative min-h-screen">
       {/* Background effects */}
