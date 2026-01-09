@@ -91,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-9VEEELF3RG" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -103,7 +103,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         <Analytics />
       </body>

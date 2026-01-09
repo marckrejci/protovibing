@@ -1,20 +1,8 @@
-import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
     <section className="flex flex-col items-center text-center max-w-[600px] mx-auto px-4 animate-fade-in-up">
-      {/* Logo */}
-      <div className="mb-6">
-        <Image
-          src="/images/logo-402x.png"
-          alt="ProtoVibing.ai logo"
-          width={64}
-          height={64}
-          className="w-12 h-auto md:w-16"
-          priority
-        />
-      </div>
 
       <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-[1.2] tracking-tight text-balance mb-4">
         Your human partner for AI-powered product validation
