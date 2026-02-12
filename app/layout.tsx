@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ProtoVibing.ai | Go from stuck idea to tested prototype in 5 days",
   description:
-    "Join the free ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward. No coding required.",
+    "Join the ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward. No coding required.",
   generator: "v0.app",
   keywords: [
     "prototype",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ProtoVibing.ai | Go from stuck idea to tested prototype in 5 days",
     description:
-      "Join the free ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward.",
+      "Join the ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward.",
     url: "https://protovibing.ai",
     siteName: "ProtoVibing.ai",
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ProtoVibing.ai | Go from stuck idea to tested prototype in 5 days",
     description:
-      "Join the free ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward.",
+      "Join the ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real feedback, and finally move forward.",
     images: ["/og-image.jpg"],
     creator: "@pathfinderfndry",
   },

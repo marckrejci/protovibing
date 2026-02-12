@@ -9,8 +9,8 @@ export function HeroSection() {
       </h1>
 
       <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
-        Join the free ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real
-        feedback, and finally move forward. Is your idea ready?
+        Join the ProtoVibing Challenge. 5 focused sessions, 30 minutes each. Build something real, get real
+        feedback, and finally move forward. Is your software idea ready?
       </p>
 
       <a
