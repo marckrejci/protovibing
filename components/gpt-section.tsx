@@ -31,8 +31,8 @@ const GPT_DATA = [
         url: "https://pfndr.co/gpt-prd",
     },
     {
-        name: "1-Shot App Prototyping Prompt",
-        description: "Tap the mic button and describe your idea out loud (or type). Get a concise precision copy-paste-ready prompt engineered for AI coding tools. Plain talk in, better code out.",
+        name: "1-Shot Prototyping Prompt",
+        description: "Tap the mic button and describe your idea out loud (or type). Get a precision copy-paste-ready prompt engineered for AI coding tools. Plain talk in, better code out.",
         url: "https://pfndr.co/gpt-prompt",
     },
 ]
