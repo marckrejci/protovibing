@@ -36,6 +36,11 @@ const GPT_DATA = [
         url: "https://pfndr.co/gpt-prompt",
     },
     {
+        name: "Future Press Release",
+        description: "Turn your idea into a Working Backwards–style PR FAQ: a launch-ready press release plus sharp customer/problem framing, solution story, and hard-nosed internal and external FAQs that nail value, risk, and strategy before you write a single line of code.",
+        url: "https://pfndr.co/gpt-future-pr",
+    },
+    {
         name: "Customer Discovery Interview Guide",
         description: "Helps founders generate a customized conversation guide for early customer discovery interviews. Enter your business idea, get a tailored guide you can use in your next call.",
         url: "https://pfndr.co/gpt-discovery",
