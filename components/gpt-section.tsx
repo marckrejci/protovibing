@@ -35,6 +35,11 @@ const GPT_DATA = [
         description: "Tap the mic button and describe your idea out loud (or type). Get a precision copy-paste-ready prompt engineered for AI coding tools. Plain talk in, better code out.",
         url: "https://pfndr.co/gpt-prompt",
     },
+    {
+        name: "Customer Discovery Interview Guide",
+        description: "Helps founders generate a customized conversation guide for early customer discovery interviews. Enter your business idea, get a tailored guide you can use in your next call.",
+        url: "https://pfndr.co/gpt-discovery",
+    },
 ]
 
 export function GPTSection() {
