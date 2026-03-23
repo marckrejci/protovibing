@@ -45,6 +45,16 @@ const GPT_DATA = [
         description: "Helps founders generate a customized conversation guide for early customer discovery interviews. Enter your business idea, get a tailored guide you can use in your next call.",
         url: "https://pfndr.co/gpt-discovery",
     },
+    {
+        name: "Idea Refiner (Pitch & One-Liners)",
+        description: "Turn your idea into a clear, memorable one-liner that sparks interest.",
+        url: "https://pfndr.co/gpt-pitch",
+    },
+    {
+        name: "Market Gap Finder: Research Brief Generator",
+        description: "Describe your business idea in 1-3 sentences. Get a copy-paste-ready competitive research prompt for Google NotebookLM that maps industry factors, spots where competitors over-invest or under-deliver, and pinpoints your best opportunity for testing in less-contested market space.",
+        url: "https://pfndr.co/gpt-market-gap",
+    },
 ]
 
 export function GPTSection() {
