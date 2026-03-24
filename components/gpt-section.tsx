@@ -57,6 +57,38 @@ const GPT_DATA = [
     },
 ]
 
+function GPTCard({ gpt }: { gpt: { name: string; description: string; url: string } }) {
+    return (
+        <a
+            href={gpt.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+        >
+            <div className="glass-card gradient-border p-6 flex flex-col transition-all duration-300 hover:border-white/20 hover:translate-y-[-4px]">
+                <div className="flex items-start justify-between mb-4">
+                    <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary/20 transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60 px-2 py-0.5 rounded-full border border-primary/10">
+                        Custom GPT
+                    </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors leading-tight">
+                    {gpt.name}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    {gpt.description}
+                </p>
+                <div className="mt-auto flex items-center text-xs font-semibold text-secondary group-hover:underline underline-offset-4">
+                    Try it on ChatGPT
+                    <ChevronRight className="w-3 h-3 ml-1" />
+                </div>
+            </div>
+        </a>
+    )
+}
+
 export function GPTSection() {
     const [shuffledGpts, setShuffledGpts] = useState<{ name: string; description: string; url: string }[]>([])
 
@@ -78,38 +110,28 @@ export function GPTSection() {
                 </p>
             </div>
 
-            {/* Masonry-style Grid */}
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {shuffledGpts.map((gpt, index) => (
-                    <div key={`${gpt.name}-${index}`} className="break-inside-avoid">
-                        <a
-                            href={gpt.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block"
-                        >
-                            <div className="glass-card gradient-border p-6 flex flex-col transition-all duration-300 hover:border-white/20 hover:translate-y-[-4px]">
-                                <div className="flex items-start justify-between mb-4">
-                                    <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary/20 transition-colors">
-                                        <ExternalLink className="w-5 h-5" />
-                                    </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60 px-2 py-0.5 rounded-full border border-primary/10">
-                                        Custom GPT
-                                    </span>
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors leading-tight">
-                                    {gpt.name}
-                                </h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                                    {gpt.description}
-                                </p>
-                                <div className="mt-auto flex items-center text-xs font-semibold text-secondary group-hover:underline underline-offset-4">
-                                    Try it on ChatGPT
-                                    <ChevronRight className="w-3 h-3 ml-1" />
-                                </div>
-                            </div>
-                        </a>
+            {/* Masonry Grid - JS column split for cross-browser support */}
+            <div className="hidden lg:flex gap-6">
+                {[0, 1, 2].map((col) => (
+                    <div key={col} className="flex-1 flex flex-col gap-6">
+                        {shuffledGpts.filter((_, i) => i % 3 === col).map((gpt) => (
+                            <GPTCard key={gpt.name} gpt={gpt} />
+                        ))}
                     </div>
+                ))}
+            </div>
+            <div className="hidden md:flex lg:hidden gap-6">
+                {[0, 1].map((col) => (
+                    <div key={col} className="flex-1 flex flex-col gap-6">
+                        {shuffledGpts.filter((_, i) => i % 2 === col).map((gpt) => (
+                            <GPTCard key={gpt.name} gpt={gpt} />
+                        ))}
+                    </div>
+                ))}
+            </div>
+            <div className="flex md:hidden flex-col gap-6">
+                {shuffledGpts.map((gpt) => (
+                    <GPTCard key={gpt.name} gpt={gpt} />
                 ))}
             </div>
         </section>
