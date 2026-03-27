@@ -20,7 +20,7 @@ export default function Home() {
       <div className="noise-overlay" aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center pb-12 md:pb-20">
+      <div className="relative z-10 flex flex-col items-center w-full pb-12 md:pb-20">
         <Header />
 
         <div className="flex flex-col items-center gap-20 md:gap-24 mt-8 md:mt-12">
